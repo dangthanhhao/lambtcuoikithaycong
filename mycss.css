@@ -1,0 +1,41 @@
+
+body{
+    background-color:#ffffff;
+}
+.container{
+   background-color:#fdfdfd;
+    height:900px;
+}
+.carousel-text{
+
+  font-size:80px;
+  color: #eef436;
+  text-shadow: 5px 5px 10px rgb(255, 11, 11);
+  border:#000000 10px;
+
+}
+.carousel-text>span{
+  font-size:200%;
+  color: #ff0057;
+  text-shadow: 5px 5px 10px rgb(255, 255, 255);
+ 
+}
+.carousel-text a{
+  text-decoration:none;
+}
+@media screen and (max-width: 414px) {
+  .carousel-text{
+  font-size:40px;
+  
+ 
+  }
+  
+}
+@media screen and (max-width: 1024px) {
+  .carousel-text{
+  visibility:hidden;
+  }
+  .carousel-text span{
+    visibility:initial
+  }
+}
