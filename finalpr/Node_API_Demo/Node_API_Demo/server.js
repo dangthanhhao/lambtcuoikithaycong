@@ -139,6 +139,83 @@ app.post("/login", (req, res) => {
 
 });
 
+app.post("/register", (req, res) => {
+	console.log(req.body);
+	if (!req.body.username) {
+		res.sendStatus(400);
+		return;
+	}
+	let username = req.body.username;
+	let password = req.body.password;
+	let name=req.body.name;
+	console.log(username+ " "+ password+" "+name);
+	
+
+	sql.connect(dbConfig, function (err) {
+		if (err) {
+			console.log("Error while connecting database :- " + err);
+			res.send(err);
+		}
+		else {
+			// create Request object
+			var request = new sql.Request();
+			// query to the database
+			request.query(`INSERT INTO dbo.Account VALUES  ( '${username}', '${password}', N'${name}', 0 )`, function (err, ress) {
+				if (err) {
+					res.status(400).send();
+				}
+				else {
+					res.json({
+							message: `Đăng kí thành công, bạn có thể dùng tài khoản này để đăng nhập!`,
+					
+						});
+					
+				}
+			});
+
+		}
+	}
+	);
+
+});
+app.put("/updateProfile", (req, res) => {
+	console.log(req.body);
+	if (!req.body.username) {
+		res.sendStatus(400);
+		return;
+	}
+	let username = req.body.username;
+	let password = req.body.password;
+	let name=req.body.name;
+	console.log(username+ " "+ password+" "+name);
+	
+	sql.connect(dbConfig, function (err) {
+		if (err) {
+			console.log("Error while connecting database :- " + err);
+			res.send(err);
+		}
+		else {
+			// create Request object
+			var request = new sql.Request();
+			// query to the database
+			request.query(`UPDATE dbo.Account SET Name=N'${name}',Password='${password}' WHERE Username='${username}'`, function (err, ress) {
+				if (err) {
+					res.status(400).send();
+				}
+				else {
+					res.json({
+							message: `Cập nhật thành công!`,
+					
+						});
+					
+				}
+			});
+
+		}
+	}
+	);
+
+});
 //provide img to frontend in image folder
 app.get("/img/:imgname", (req, res) => {
 	res.sendfile(publicDir + '\\' + req.params.imgname, (err) => {
