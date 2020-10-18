@@ -1,0 +1,10 @@
+<!--The content below is only a placeholder and can be replaced.-->
+<app-header></app-header>
+<div [class.container]=check()>
+  <div *ngIf="check()">
+  <app-banner></app-banner>
+  <app-slider ></app-slider>
+</div>
+  <router-outlet></router-outlet>
+</div>
+<app-footer></app-footer>

@@ -1,0 +1,39 @@
+<div class="productdetail">
+    <div class="row">
+      <p class=" slidecap pdcap cap">Feedback</p>
+    </div>
+    <p class=" slidecap showpdcap text-danger" *ngIf='err'> Không tìm thấy sản phẩm nào</p>
+    <div class="row">
+      <img src="assets/images/logo.png" alt="" class="col-md-3" width="100%" height="100%">
+      <div class="col-md-8">
+        <h1>Phản hồi của user</h1>
+        <div class="table-responsive-md">
+          
+          <table class="table table-striped table-hover">
+            <thead class="thead-dark">
+              <tr>
+                <th scope="col">Username</th>
+                <th scope="col">Tên sản phẩm</th>
+                <th scope="col">Feedback</th>
+              
+              </tr>
+            </thead>
+            <tbody>
+              <tr *ngFor="let feedback of feedbacks">
+                <th scope="row">{{feedback.Username}}</th>
+                <td>{{feedback.Name}}</td>
+                <td>{{feedback.Comment}}</td>
+                
+              
+              </tr>
+
+
+            </tbody>
+          </table>
+
+
+          <!-- End form -->
+        </div>
+      </div>
+    </div>
+  </div>

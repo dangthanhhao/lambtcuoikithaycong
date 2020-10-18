@@ -1,0 +1,32 @@
+<div class="row">
+    <p class=" slidecap showpdcap cap"> Danh mục: <span>{{cate}}</span></p>
+</div>
+  <!-- product -->
+  
+  <p class=" slidecap showpdcap text-danger" *ngIf='err'> Không tìm thấy sản phẩm nào</p>
+  <div class="items">
+    <div class="row rowitem" *ngFor= 'let row of rows'>
+      <div class="col-md-3" *ngFor= 'let column of columns' >
+        <div class="card" style="width:100%" *ngIf="(row*4+column)<products.length">
+          <a [routerLink]="['/product',products[row*4+column].Id]">
+          <img class="card-img-top" src="http://localhost:8080/img/{{products[row*4+column].Img}}" alt="{{products[row*4+column].Name}}">
+          <div class="card-img-overlay">
+            <h4 class="card-title">{{products[row*4+column].Name}}</h4>
+            <p class="card-text">{{products[row*4+column].Description}}</p>
+          </div>
+        </a>
+        </div>
+      </div>
+      
+    </div>
+
+  </div>
+  <!-- pagi -->
+  <div class="row">
+    <ul class="pagination">
+
+      <li class="page-item " *ngFor="let pagipage of paginations" [class.active]="pagipage===page+1" (click)="page=pagipage-1;changepage()"> <a class="page-link">{{pagipage}} </a></li>
+
+    </ul>
+
+  </div>

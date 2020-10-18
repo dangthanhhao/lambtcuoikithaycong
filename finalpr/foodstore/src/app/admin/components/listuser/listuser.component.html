@@ -1,0 +1,52 @@
+<div class="productdetail">
+  <div class="row">
+    <p class=" slidecap pdcap cap"> Cập nhật thông tin</p>
+  </div>
+  <p class=" slidecap showpdcap text-danger" *ngIf='err'> Không tìm thấy sản phẩm nào</p>
+  <div class="row">
+    <img src="assets/images/logo.png" alt="" class="col-md-3" width="100%" height="100%">
+    <div class="col-md-9">
+      <h1>Danh sách user</h1>
+      <div class="table-responsive-md">
+        
+        <table class="table table-striped table-hover">
+            <colgroup>
+              <col span="1" style="width: 10%;">
+              <col span="1" style="width: 15%;">
+              <col span="1" style="width: 15%;">
+              <col span="1" style="width: 70%;">
+           </colgroup>
+          <thead class="thead-dark">
+            <tr>
+              <th scope="col">Username</th>
+              <th scope="col">Name</th>
+              <th scope="col">Role</th>
+              <th scope="col">Hành động</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr *ngFor="let user of users">
+              <th scope="row">{{user.Username}}</th>
+              <td>{{user.Name}}</td>
+              <td>{{user.Role===1?"admin":"custommer"}}</td>
+
+
+              <td>
+                <button type="button" class="btn btn-warning" [routerLink]="['../updateuser',user.Username]">Update</button>
+                <button type="button" class="btn btn-danger" (click)="delete(user.Username)">Xóa</button>
+                <button type="button" class="btn btn-primary" (click)="setad(user.Username)">Set admin</button>
+
+              </td>
+            </tr>
+            
+
+
+          </tbody>
+        </table>
+
+
+        <!-- End form -->
+      </div>
+    </div>
+  </div>
+</div>

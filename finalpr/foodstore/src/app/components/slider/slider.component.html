@@ -1,0 +1,19 @@
+
+   
+<div class="leftslide bg-info" >
+    <p class="slidecap">
+      Danh mục sản phẩm
+    </p>
+    <ul class="nav flex-column navslide">
+      <a  [routerLink]="['products','VN']"><li>Đồ ăn Việt</li></a>
+      <a  [routerLink]="['products','JP']"><li>Đồ ăn Nhật</li></a>
+      <a [routerLink]="['products','KR']"><li>Đồ ăn Hàn</li></a>
+      <a [routerLink]="['products','FF']"><li>Đồ ăn vặt</li></a>
+      <a [routerLink]="['products','DR']"><li>Đồ uống</li></a>
+      <a routerLink="products"><li>Tất cả</li></a>
+    </ul>
+  </div>
+  <div class="slidebutton" (click)="showHideSlider()" >
+    <img src="assets/images/button.png" alt="" width="60px" height="60px">
+  </div>
+  
